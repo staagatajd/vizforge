@@ -11,7 +11,7 @@ export default function App() {
 
   const handleProblem = async () => {
     if (problem.trim() === "") {
-      return;
+      return; //check if text area exists
     }
 
     try {
@@ -19,14 +19,14 @@ export default function App() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ problem }),
-      });
+      }); //request to the server, stored inside res
 
-      const data = await res.json();
+      const data = await res.json(); //turn data "json string" into json ({data: " "})
 
       if (!res.ok) {
         console.error("API error:", data.error);
         return;
-      }
+      } //if res.ok it null, error
 
       console.log(data); //test;
     } catch (err) {
@@ -51,7 +51,7 @@ export default function App() {
 
         <Textarea onSet={setProblem} />
 
-        <button className="btn-visualize font-typoround">Visualize</button>
+        <button className="btn-visualize font-typoround" onClick={handleProblem}>Visualize</button>
       </div>
     </div>
   );
