@@ -1,4 +1,11 @@
-export default function Textarea() {
+interface TextareaProps
+{
+  onSet: (value: string) => void;
+}
+
+
+export default function Textarea({onSet}: TextareaProps) {
+
   return (
     <div className="w-full max-w-2xl mx-auto">
       <textarea
@@ -13,6 +20,7 @@ export default function Textarea() {
           transition-all duration-300
           focus:bg-white/8 focus:border-white/25 focus:shadow-[0_0_30px_rgba(221,24,24,0.1)]
         "
+        onChange = {(e) => onSet(e.target.value)}
       />
     </div>
   );
