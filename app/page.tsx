@@ -7,40 +7,32 @@ import Textarea from "@/components/Textarea";
 import { useState } from "react";
 
 export default function App() {
-
   const [problem, setProblem] = useState<string>("");
 
-  const handleProblem = async () =>
-  {
-    if(problem.trim() === "")
-    {
+  const handleProblem = async () => {
+    if (problem.trim() === "") {
       return;
     }
 
-    try
-    {
+    try {
       const res = await fetch("/api/visualize", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ problem })
-    });
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ problem }),
+      });
 
       const data = await res.json();
 
-      if(!res.ok)
-      {
+      if (!res.ok) {
         console.error("API error:", data.error);
-      return;
+        return;
       }
 
-      console.log(data)//test;
-    }
-    catch(err)
-    {
+      console.log(data); //test;
+    } catch (err) {
       console.error("Fetch error:", err);
     }
-  }
-
+  };
 
   return (
     <div
@@ -51,19 +43,16 @@ export default function App() {
       }}
     >
       <header>
-        <Header/>
+        <Header />
       </header>
 
       <div className="flex items-center justify-center mt-6 flex-col gap-4">
-        <Introduction/>
+        <Introduction />
 
-        <Textarea onSet = {setProblem}/>
+        <Textarea onSet={setProblem} />
 
-        <button className="btn-visualize font-typoround">
-          Visualize
-        </button>
+        <button className="btn-visualize font-typoround">Visualize</button>
       </div>
-
     </div>
   );
 }
