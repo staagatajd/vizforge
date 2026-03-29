@@ -37,13 +37,18 @@
     transition: all 0.3s;
   }
 
-  .btn-visualize:hover {
+  .btn-visualize:hover:not(:disabled) {
     box-shadow: 0 0 35px rgba(221, 24, 24, 0.5);
     transform: scale(1.05);
   }
 
   .btn-visualize:active {
     transform: scale(0.95);
+  }
+
+  .btn-visualize:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
   }
 }
 
