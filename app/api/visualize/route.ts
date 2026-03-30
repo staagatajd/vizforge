@@ -119,7 +119,8 @@ export async function POST(req: NextRequest) {
           - "aux" is a free object for any extra state (e.g. running sum, current window size, hash map contents)
           - "description" must be one clear sentence — what operation is happening, not just "step N"
           - Generate enough steps to trace the full algorithm on the example input
-          - One meaningful operation per step — keep it granular`,
+          - One meaningful operation per step — keep it granular
+          - All values in "aux" must be pre-computed numbers or strings — never expressions like "9 - 7", always the result like 2`,
         },
         {
           role: "user",

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-//import ArrayVisualizer from "./ArrayVisualizer";
+import ArrayVisualizer from "./ArrayVisualizer";
 
 interface VisualizationPanelProps {
   vizData: any;
@@ -10,6 +10,7 @@ interface VisualizationPanelProps {
   onPrev: () => void;
 }
 
+//lookup table <K,V> (key,value pair) syntax ---> const name: Record<K,V> = {}
 const difficultyColor: Record<string, string> = {
   Easy: "text-emerald-400 border-emerald-400/30 bg-emerald-400/10",
   Medium: "text-yellow-400 border-yellow-400/30 bg-yellow-400/10",
@@ -47,9 +48,9 @@ export default function VisualizationPanel({ vizData, currentStep, onNext, onPre
 
       {/* visualizer */}
       <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-6 min-h-[180px] flex items-center justify-center">
-        {/* {vizData.category === "array" && (
-        //   <ArrayVisualizer visualization={step.visualization} />
-        )} */}
+        {vizData.category === "array" && (
+           <ArrayVisualizer visualization={step.visualization} />
+        )}
       </div>
 
       {/* step description + aux */}
