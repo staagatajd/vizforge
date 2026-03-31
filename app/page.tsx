@@ -55,7 +55,7 @@ export default function App() {
   }, [problem]);
   return (
     <div
-      className="w-full h-screen p-4"
+      className="w-full min-h-screen p-4"
       style={{
         background:
           "radial-gradient(ellipse at bottom left, #1a0a2e 0%, #0f0818 50%, #09070f 100%)",

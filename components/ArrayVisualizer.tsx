@@ -11,7 +11,13 @@ interface ArrayVisualizerProps {
   };
 }
 
-export default function ArrayVisualizer({ visualization }: ArrayVisualizerProps) {
+export default function ArrayVisualizer({
+  visualization,
+}: ArrayVisualizerProps) {
+  if (!visualization?.array) {
+    return <p className="text-white/30 text-sm">No array data.</p>;
+  }
+
   const { array, highlights, pointers } = visualization;
 
   // invert pointers map: index → pointer names
@@ -53,8 +59,12 @@ export default function ArrayVisualizer({ visualization }: ArrayVisualizerProps)
             <motion.div
               key={i}
               animate={{
-                backgroundColor: isHighlighted ? "rgba(167,139,250,0.25)" : "rgba(255,255,255,0.05)",
-                borderColor: isHighlighted ? "rgba(167,139,250,0.6)" : "rgba(255,255,255,0.1)",
+                backgroundColor: isHighlighted
+                  ? "rgba(167,139,250,0.25)"
+                  : "rgba(255,255,255,0.05)",
+                borderColor: isHighlighted
+                  ? "rgba(167,139,250,0.6)"
+                  : "rgba(255,255,255,0.1)",
                 scale: isHighlighted ? 1.1 : 1,
               }}
               transition={{ duration: 0.3 }}

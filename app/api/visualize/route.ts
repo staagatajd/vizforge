@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
   try {
     const completion = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",
+      temperature: 0, 
       messages: [
         {
           role: "system",
@@ -120,7 +121,9 @@ export async function POST(req: NextRequest) {
           - "description" must be one clear sentence — what operation is happening, not just "step N"
           - Generate enough steps to trace the full algorithm on the example input
           - One meaningful operation per step — keep it granular
-          - All values in "aux" must be pre-computed numbers or strings — never expressions like "9 - 7", always the result like 2`,
+          - All values in "aux" must be pre-computed numbers or strings — never expressions like "9 - 7", always the result like 2
+          - Every step's "visualization" must always include ALL fields defined for that category — even if unchanged from the previous step. Never omit "array", "highlights", "pointers", or "aux".
+          - Problems that conceptually involve multiple arrays (e.g. merging, median of two arrays) must still use category "array" and flatten all arrays into a single "array" field, using pointers and highlights to distinguish between them.`,
         },
         {
           role: "user",
