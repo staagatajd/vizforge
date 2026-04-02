@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "VizForge",
   description: "A LeetCode-style problem visualizer where it visualizes the problem description for you",
   icons: {
-    icon: "/vizforge_icon.svg",
+    icon: "/favicon.svg",
   },
 };
 
