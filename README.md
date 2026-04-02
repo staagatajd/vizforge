@@ -1,6 +1,6 @@
 # VizForge 🔮 v1.0.0
 
-> Paste a problem. See it think.
+![VizForge Logo](./public/vizforge_logo.svg)
 
 ## Inspiration
 
