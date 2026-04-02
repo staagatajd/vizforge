@@ -7,6 +7,7 @@ import Textarea from "@/components/Textarea";
 import { useState, useEffect } from "react";
 import { ThreeDot } from "react-loading-indicators";
 import VisualizationPanel from "@/components/VisualizationPanel";
+import Popup from "@/components/Popup";
 
 export default function App() {
   const [problem, setProblem] = useState<string>("");
@@ -14,6 +15,7 @@ export default function App() {
   const [isVisualized, setIsVisualized] = useState<boolean>(false);
   const [vizData, setVizData] = useState<any>(null);
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const [showBanner, setShowBanner] = useState(true);
 
   const handleProblem = async () => {
     if (problem.trim() === "") {
@@ -61,11 +63,12 @@ export default function App() {
           "radial-gradient(ellipse at bottom left, #1a0a2e 0%, #0f0818 50%, #09070f 100%)",
       }}
     >
+      {showBanner && (<Popup setShowBanner={setShowBanner}/>)}
       <header>
         <Header />
       </header>
 
-      <div className="flex items-center justify-center mt-6 flex-col gap-4">
+      <div className="flex items-center justify-center mt-6 flex-col gap-4 w-full px-4">
         <Introduction />
 
         <Textarea onSet={setProblem} />

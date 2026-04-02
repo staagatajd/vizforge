@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VizForge 🔮 v1.0.0
 
-## Getting Started
+> Paste a problem. See it think.
 
-First, run the development server:
+## Inspiration
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I built VizForge because I wanted to actually *see* algorithm and problem descriptions work, not just read about them. 
+Most DSA resources explain what an algorithm does, but watching it step through your specific 
+problem is a completely different experience. That gap is what VizForge tries to fill.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What it does
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+VizForge takes a LeetCode-style problem, sends it to an AI, and generates a step-by-step 
+visual breakdown of how the algorithm solves it (arrays, pointers, highlights, and all).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Next.js + TypeScript** — frontend & API routes
+- **Tailwind CSS** — styling
+- **Groq (llama-3.3-70b-versatile)** — AI backbone
+- **Framer Motion** — animations
 
-To learn more about Next.js, take a look at the following resources:
+## ⚠️ Work in Progress
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is still actively being built. Here's the honest state of things:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Only **array** visualizations are fully implemented so far
+- The AI sometimes produces inconsistent steps — this is a limitation of the model being used (Free tier Groq lol)
+- A stronger model would yield significantly better results (Claude subscription :D), the visualizations would be 
+  significantly more accurate and consistent
+- More data structure visualizers are planned (linked lists, trees, graphs, stacks, DP)
 
-## Deploy on Vercel
+## A note on originality (Honest)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is an original idea I came up with and built from scratch. Every design decision, 
+architecture choice, and line of code reflects my own learning process as a developer. The framer motion is the only
+one that's really vibe coded because I need assistance on it. I'm also currently learning framer motion right now so yea.
+I won't deny SOME of the design like coloring and lighting/shadows are also AI assisted :D!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Author
+
+**Daniel** — 2nd year CS student, Visayas State University
